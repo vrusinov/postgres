@@ -2201,7 +2201,7 @@ LOG:  database system is ready to accept read only connections
 
    <para>
     WAL file control commands will not work during recovery,
-    e.g. <function>pg_start_backup</>, <function>pg_switch_xlog</> etc.
+    e.g. <function>pg_start_backup</>, <function>pg_switch_wal</> etc.
    </para>
 
    <para>

@@ -97,7 +97,7 @@ $node_master->safe_psql('postgres',
 	"INSERT INTO tab_int VALUES (generate_series(5001,6000))");
 
 # Force archiving of WAL file
-$node_master->safe_psql('postgres', "SELECT pg_switch_xlog()");
+$node_master->safe_psql('postgres', "SELECT pg_switch_wal()");
 
 # Test recovery targets
 my @recovery_params = ("recovery_target = 'immediate'");
