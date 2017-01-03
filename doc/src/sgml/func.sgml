@@ -18051,7 +18051,11 @@ SELECT set_config('log_statement_stats', 'off', false);
         <literal><function>pg_switch_wal()</function></literal>
         </entry>
        <entry><type>pg_lsn</type></entry>
-       <entry>Force switch to a new transaction log file (restricted to superusers by default, but other users can be granted EXECUTE to run the function)</entry>
+       <entry>
+        Force switch to a new write-ahead log file (restricted to superusers by
+        default, but other users can be granted EXECUTE to run the function).
+        Old name: pg_switch_xlog.
+       </entry>
       </row>
       <row>
        <entry>
