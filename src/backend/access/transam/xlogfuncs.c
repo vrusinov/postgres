@@ -412,7 +412,7 @@ pg_current_xlog_flush_location(PG_FUNCTION_ARGS)
  * and synced to disk by walreceiver.
  */
 Datum
-pg_last_xlog_receive_location(PG_FUNCTION_ARGS)
+pg_last_wal_receive_location(PG_FUNCTION_ARGS)
 {
 	XLogRecPtr	recptr;
 

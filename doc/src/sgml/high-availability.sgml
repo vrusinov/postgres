@@ -854,7 +854,7 @@ primary_conninfo = 'host=192.168.1.50 port=5432 user=foo password=foopass'
      location on the primary with the last WAL location received by the
      standby. They can be retrieved using
      <function>pg_current_xlog_location</> on the primary and the
-     <function>pg_last_xlog_receive_location</> on the standby,
+     <function>pg_last_wal_receive_location</> on the standby,
      respectively (see <xref linkend="functions-admin-backup-table"> and
      <xref linkend="functions-recovery-info-table"> for details).
      The last WAL receive location in the standby is also displayed in the
@@ -868,7 +868,7 @@ primary_conninfo = 'host=192.168.1.50 port=5432 user=foo password=foopass'
      <function>pg_current_xlog_location</> and <literal>sent_location</> field
      might indicate that the master server is under heavy load, while
      differences between <literal>sent_location</> and
-     <function>pg_last_xlog_receive_location</> on the standby might indicate
+     <function>pg_last_wal_receive_location</> on the standby might indicate
      network delay, or that the standby is under heavy load.
     </para>
    </sect3>
