@@ -553,13 +553,13 @@ pg_pause_recovery(PG_FUNCTION_ARGS)
 }
 
 /*
- * pg_xlog_replay_resume - resume recovery now
+ * pg_resume_recovery - resume recovery now
  *
  * Permission checking for this function is managed through the normal
  * GRANT system.
  */
 Datum
-pg_xlog_replay_resume(PG_FUNCTION_ARGS)
+pg_resume_recovery(PG_FUNCTION_ARGS)
 {
 	if (!RecoveryInProgress())
 		ereport(ERROR,

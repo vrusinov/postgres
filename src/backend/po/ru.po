@@ -2401,8 +2401,8 @@ msgstr "восстановление приостановлено"
 
 #: access/transam/xlog.c:5645
 #, c-format
-msgid "Execute pg_xlog_replay_resume() to continue."
-msgstr "Выполните pg_xlog_replay_resume() для продолжения."
+msgid "Execute pg_resume_recovery() to continue."
+msgstr "Выполните pg_resume_recovery() для продолжения."
 
 #: access/transam/xlog.c:5852
 #, c-format

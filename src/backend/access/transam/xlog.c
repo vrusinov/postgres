@@ -5766,7 +5766,7 @@ recoveryPausesHere(void)
 
 	ereport(LOG,
 			(errmsg("recovery has paused"),
-			 errhint("Execute pg_xlog_replay_resume() to continue.")));
+			 errhint("Execute pg_resume_recovery() to continue.")));
 
 	while (RecoveryIsPaused())
 	{

@@ -2039,8 +2039,8 @@ msgstr "restauration en pause"
 
 #: access/transam/xlog.c:5645
 #, c-format
-msgid "Execute pg_xlog_replay_resume() to continue."
-msgstr "Exécuter pg_xlog_replay_resume() pour continuer."
+msgid "Execute pg_resume_recovery() to continue."
+msgstr "Exécuter pg_resume_recovery() pour continuer."
 
 #: access/transam/xlog.c:5852
 #, c-format

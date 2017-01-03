@@ -2069,8 +2069,8 @@ msgstr "ripristino in pausa"
 
 #: access/transam/xlog.c:5645
 #, c-format
-msgid "Execute pg_xlog_replay_resume() to continue."
-msgstr "Esegui pg_xlog_replay_resume() per continuare."
+msgid "Execute pg_resume_recovery() to continue."
+msgstr "Esegui pg_resume_recovery() per continuare."
 
 #: access/transam/xlog.c:5852
 #, c-format

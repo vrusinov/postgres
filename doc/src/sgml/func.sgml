@@ -18293,7 +18293,7 @@ postgres=# SELECT * FROM pg_xlogfile_name_offset(pg_stop_backup());
     <primary>pg_pause_recovery</primary>
    </indexterm>
    <indexterm>
-    <primary>pg_xlog_replay_resume</primary>
+    <primary>pg_resume_recovery</primary>
    </indexterm>
 
    <para>
@@ -18332,10 +18332,13 @@ postgres=# SELECT * FROM pg_xlogfile_name_offset(pg_stop_backup());
       </row>
       <row>
        <entry>
-        <literal><function>pg_xlog_replay_resume()</function></literal>
+        <literal><function>pg_resume_recovery()</function></literal>
         </entry>
        <entry><type>void</type></entry>
-       <entry>Restarts recovery if it was paused (restricted to superusers by default, but other users can be granted EXECUTE to run the function).
+       <entry>
+        Restarts recovery if it was paused (restricted to superusers by default,
+        but other users can be granted EXECUTE to run the function). Old name:
+        pg_xlog_replay_resume.
        </entry>
       </row>
      </tbody>
