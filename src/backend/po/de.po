@@ -2789,8 +2789,8 @@ msgstr "Wert zu lang für Restore-Punkt (maximal %d Zeichen)"
 
 #: access/transam/xlogfuncs.c:472
 #, c-format
-msgid "pg_xlogfile_name_offset() cannot be executed during recovery."
-msgstr "pg_xlogfile_name_offset() kann nicht während der Wiederherstellung ausgeführt werden."
+msgid "pg_wal_file_name_offset() cannot be executed during recovery."
+msgstr "pg_wal_file_name_offset() kann nicht während der Wiederherstellung ausgeführt werden."
 
 #: access/transam/xlogfuncs.c:528
 #, c-format

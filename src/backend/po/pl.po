@@ -2834,8 +2834,8 @@ msgstr "wartość zbyt długa punktu przywrócenia (maksimum %d znaków)"
 
 #: access/transam/xlogfuncs.c:472
 #, c-format
-msgid "pg_xlogfile_name_offset() cannot be executed during recovery."
-msgstr "pg_xlogfile_name_offset() nie może być uruchomiony podczas trwania odzyskiwania."
+msgid "pg_wal_file_name_offset() cannot be executed during recovery."
+msgstr "pg_wal_file_name_offset() nie może być uruchomiony podczas trwania odzyskiwania."
 
 #: access/transam/xlogfuncs.c:528
 #, c-format

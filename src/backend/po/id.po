@@ -1911,8 +1911,8 @@ msgstr "nilai terlalu panjang untuk titik pemgembalian point (maksimal %d karakt
 
 #: access/transam/xlogfuncs.c:300
 #, c-format
-msgid "pg_xlogfile_name_offset() cannot be executed during recovery."
-msgstr "pg_xlogfile_name_offset() tidak dapat dijalankan selama proses pemulihan."
+msgid "pg_wal_file_name_offset() cannot be executed during recovery."
+msgstr "pg_wal_file_name_offset() tidak dapat dijalankan selama proses pemulihan."
 
 #: access/transam/xlogfuncs.c:312 access/transam/xlogfuncs.c:383 access/transam/xlogfuncs.c:540 access/transam/xlogfuncs.c:546
 #, c-format

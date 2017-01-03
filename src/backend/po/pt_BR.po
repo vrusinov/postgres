@@ -2143,8 +2143,8 @@ msgstr "valor é muito longo para ponto de restauração (máximo de %d caracter
 
 #: access/transam/xlogfuncs.c:271
 #, c-format
-msgid "pg_xlogfile_name_offset() cannot be executed during recovery."
-msgstr "pg_xlogfile_name_offset() não pode ser executado durante recuperação."
+msgid "pg_wal_file_name_offset() cannot be executed during recovery."
+msgstr "pg_wal_file_name_offset() não pode ser executado durante recuperação."
 
 #: access/transam/xlogfuncs.c:327
 #, c-format

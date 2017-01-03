@@ -2042,8 +2042,8 @@ msgstr "リストアポイントとしては値が長すぎます（最大 %d �
 
 #: access/transam/xlogfuncs.c:290
 #, c-format
-msgid "pg_xlogfile_name_offset() cannot be executed during recovery."
-msgstr "リカバリ中は pg_xlogfile_name_offset() を実行できません"
+msgid "pg_wal_file_name_offset() cannot be executed during recovery."
+msgstr "リカバリ中は pg_wal_file_name_offset() を実行できません"
 
 #: access/transam/xlogfuncs.c:302 access/transam/xlogfuncs.c:373
 #: access/transam/xlogfuncs.c:530 access/transam/xlogfuncs.c:536

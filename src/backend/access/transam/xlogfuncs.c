@@ -444,15 +444,15 @@ pg_last_wal_replay_location(PG_FUNCTION_ARGS)
 }
 
 /*
- * Compute an xlog file name and decimal byte offset given a WAL location,
- * such as is returned by pg_stop_backup() or pg_xlog_switch().
+ * Compute an WAL file name and decimal byte offset given a WAL location,
+ * such as is returned by pg_stop_backup() or pg_switch_wal().
  *
  * Note that a location exactly at a segment boundary is taken to be in
  * the previous segment.  This is usually the right thing, since the
  * expected usage is to determine which xlog file(s) are ready to archive.
  */
 Datum
-pg_xlogfile_name_offset(PG_FUNCTION_ARGS)
+pg_wal_file_name_offset(PG_FUNCTION_ARGS)
 {
 	XLogSegNo	xlogsegno;
 	uint32		xrecoff;
@@ -468,7 +468,8 @@ pg_xlogfile_name_offset(PG_FUNCTION_ARGS)
 		ereport(ERROR,
 				(errcode(ERRCODE_OBJECT_NOT_IN_PREREQUISITE_STATE),
 				 errmsg("recovery is in progress"),
-				 errhint("pg_xlogfile_name_offset() cannot be executed during recovery.")));
+				 errhint(
+					 "pg_wal_file_name_offset() cannot be executed during recovery.")));
 
 	/*
 	 * Construct a tuple descriptor for the result row.  This must match this
@@ -511,7 +512,7 @@ pg_xlogfile_name_offset(PG_FUNCTION_ARGS)
 
 /*
  * Compute an xlog file name given a WAL location,
- * such as is returned by pg_stop_backup() or pg_xlog_switch().
+ * such as is returned by pg_stop_backup() or pg_switch_wal().
  */
 Datum
 pg_xlogfile_name(PG_FUNCTION_ARGS)

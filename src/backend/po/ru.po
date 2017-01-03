@@ -3265,9 +3265,9 @@ msgstr "значение для точки восстановления прев
 
 #: access/transam/xlogfuncs.c:472
 #, c-format
-msgid "pg_xlogfile_name_offset() cannot be executed during recovery."
+msgid "pg_wal_file_name_offset() cannot be executed during recovery."
 msgstr ""
-"Функцию pg_xlogfile_name_offset() нельзя вызывать во время восстановления."
+"Функцию pg_wal_file_name_offset() нельзя вызывать во время восстановления."
 
 #: access/transam/xlogfuncs.c:528
 #, c-format

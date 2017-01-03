@@ -1587,7 +1587,7 @@ if (!triggered)
    </para>
 
    <para>
-    An external program can call the <function>pg_xlogfile_name_offset()</>
+    An external program can call the <function>pg_wal_file_name_offset()</>
     function (see <xref linkend="functions-admin">)
     to find out the file name and the exact byte offset within it of
     the current end of WAL.  It can then access the WAL file directly

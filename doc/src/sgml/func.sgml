@@ -17960,7 +17960,7 @@ SELECT set_config('log_statement_stats', 'off', false);
     <primary>pg_xlogfile_name</primary>
    </indexterm>
    <indexterm>
-    <primary>pg_xlogfile_name_offset</primary>
+    <primary>pg_wal_file_name_offset</primary>
    </indexterm>
    <indexterm>
     <primary>pg_wal_location_diff</primary>
@@ -18066,10 +18066,13 @@ SELECT set_config('log_statement_stats', 'off', false);
       </row>
       <row>
        <entry>
-        <literal><function>pg_xlogfile_name_offset(<parameter>location</> <type>pg_lsn</>)</function></literal>
+        <literal><function>pg_wal_file_name_offset(<parameter>location</> <type>pg_lsn</>)</function></literal>
         </entry>
        <entry><type>text</>, <type>integer</></entry>
-       <entry>Convert transaction log location string to file name and decimal byte offset within file</entry>
+       <entry>
+        Convert transaction log location string to file name and decimal byte
+        offset within file. Old name: pg_xlogfile_name_offset.
+       </entry>
       </row>
       <row>
        <entry>
@@ -18167,11 +18170,11 @@ postgres=# select pg_start_backup('label_goes_here');
    </para>
 
    <para>
-    You can use <function>pg_xlogfile_name_offset</> to extract the
+    You can use <function>pg_wal_file_name_offset</> to extract the
     corresponding transaction log file name and byte offset from the results of any of the
     above functions.  For example:
 <programlisting>
-postgres=# SELECT * FROM pg_xlogfile_name_offset(pg_stop_backup());
+postgres=# SELECT * FROM pg_wal_file_name_offset(pg_stop_backup());
         file_name         | file_offset
 --------------------------+-------------
  00000001000000000000000D |     4039624
