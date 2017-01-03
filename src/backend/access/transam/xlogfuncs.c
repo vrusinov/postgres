@@ -369,7 +369,7 @@ pg_current_wal_location(PG_FUNCTION_ARGS)
  * This function is mostly for debugging purposes.
  */
 Datum
-pg_current_xlog_insert_location(PG_FUNCTION_ARGS)
+pg_current_wal_insert_location(PG_FUNCTION_ARGS)
 {
 	XLogRecPtr	current_recptr;
 

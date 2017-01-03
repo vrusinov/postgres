@@ -17936,7 +17936,7 @@ SELECT set_config('log_statement_stats', 'off', false);
     <primary>pg_current_xlog_flush_location</primary>
    </indexterm>
    <indexterm>
-    <primary>pg_current_xlog_insert_location</primary>
+    <primary>pg_current_wal_insert_location</primary>
    </indexterm>
    <indexterm>
     <primary>pg_current_wal_location</primary>
@@ -17999,7 +17999,7 @@ SELECT set_config('log_statement_stats', 'off', false);
       </row>
       <row>
        <entry>
-        <literal><function>pg_current_xlog_insert_location()</function></literal>
+        <literal><function>pg_current_wal_insert_location()</function></literal>
         </entry>
        <entry><type>pg_lsn</type></entry>
        <entry>Get current transaction log insert location</entry>
@@ -18162,7 +18162,7 @@ postgres=# select pg_start_backup('label_goes_here');
    <para>
     <function>pg_current_wal_location</> displays the current transaction log
     write location in the same format used by the above functions.  Similarly,
-    <function>pg_current_xlog_insert_location</> displays the current transaction log
+    <function>pg_current_wal_insert_location</> displays the current transaction log
     insertion point and <function>pg_current_xlog_flush_location</> displays the
     current transaction log flush point. The insertion point is the <quote>logical</>
     end of the transaction log at any instant, while the write location is the end of
@@ -18172,7 +18172,7 @@ postgres=# select pg_start_backup('label_goes_here');
     what you want if you are interested in archiving partially-complete transaction log
     files.  The insertion and flush points are made available primarily for server
     debugging purposes.  These are both read-only operations and do not
-    require superuser permissions.
+    require superuser permissions. Old name: pg_current_xlog_insert_location.
    </para>
 
    <para>
