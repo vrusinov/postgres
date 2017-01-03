@@ -4424,44 +4424,44 @@ SELECT col1, (SELECT regexp_matches(col2, '(bar)(beque)')) FROM tab;
 <programlisting>
 
 SELECT foo FROM regexp_split_to_table('the quick brown fox jumps over the lazy dog', E'\\s+') AS foo;
-  foo   
+  foo
 -------
- the    
- quick  
- brown  
- fox    
- jumps 
- over   
- the    
- lazy   
- dog    
+ the
+ quick
+ brown
+ fox
+ jumps
+ over
+ the
+ lazy
+ dog
 (9 rows)
 
 SELECT regexp_split_to_array('the quick brown fox jumps over the lazy dog', E'\\s+');
-              regexp_split_to_array             
+              regexp_split_to_array
 -----------------------------------------------
  {the,quick,brown,fox,jumps,over,the,lazy,dog}
 (1 row)
 
 SELECT foo FROM regexp_split_to_table('the quick brown fox', E'\\s*') AS foo;
- foo 
+ foo
 -----
- t         
- h         
- e         
- q         
- u         
- i         
- c         
- k         
- b         
- r         
- o         
- w         
- n         
- f         
- o         
- x         
+ t
+ h
+ e
+ q
+ u
+ i
+ c
+ k
+ b
+ r
+ o
+ w
+ n
+ f
+ o
+ x
 (16 rows)
 </programlisting>
    </para>
@@ -10285,32 +10285,32 @@ SELECT xmlexists('//town[text() = ''Toronto'']' PASSING BY REF '<towns><town>Tor
 <screen><![CDATA[
 SET xmloption TO DOCUMENT;
 SELECT xml_is_well_formed('<>');
- xml_is_well_formed 
+ xml_is_well_formed
 --------------------
  f
 (1 row)
 
 SELECT xml_is_well_formed('<abc/>');
- xml_is_well_formed 
+ xml_is_well_formed
 --------------------
  t
 (1 row)
 
 SET xmloption TO CONTENT;
 SELECT xml_is_well_formed('abc');
- xml_is_well_formed 
+ xml_is_well_formed
 --------------------
  t
 (1 row)
 
 SELECT xml_is_well_formed_document('<pg:foo xmlns:pg="http://postgresql.org/stuff">bar</pg:foo>');
- xml_is_well_formed_document 
+ xml_is_well_formed_document
 -----------------------------
  t
 (1 row)
 
 SELECT xml_is_well_formed_document('<pg:foo xmlns:pg="http://postgresql.org/stuff">bar</my:foo>');
- xml_is_well_formed_document 
+ xml_is_well_formed_document
 -----------------------------
  f
 (1 row)
@@ -10373,7 +10373,7 @@ SELECT xml_is_well_formed_document('<pg:foo xmlns:pg="http://postgresql.org/stuf
 SELECT xpath('/my:a/text()', '<my:a xmlns:my="http://example.com">test</my:a>',
              ARRAY[ARRAY['my', 'http://example.com']]);
 
- xpath  
+ xpath
 --------
  {test}
 (1 row)
@@ -10416,7 +10416,7 @@ SELECT xpath('//mydefns:b/text()', '<a xmlns="http://example.com"><b>test</b></a
 SELECT xpath_exists('/my:a/text()', '<my:a xmlns:my="http://example.com">test</my:a>',
                      ARRAY[ARRAY['my', 'http://example.com']]);
 
- xpath_exists  
+ xpath_exists
 --------------
  t
 (1 row)
@@ -15174,7 +15174,7 @@ SELECT * FROM generate_series(4,3);
 (0 rows)
 
 SELECT generate_series(1.1, 4, 1.3);
- generate_series 
+ generate_series
 -----------------
              1.1
              2.4
@@ -15192,7 +15192,7 @@ SELECT current_date + s.a AS dates FROM generate_series(0,14,7) AS s(a);
 
 SELECT * FROM generate_series('2008-03-01 00:00'::timestamp,
                               '2008-03-04 12:00', '10 hours');
-   generate_series   
+   generate_series
 ---------------------
  2008-03-01 00:00:00
  2008-03-01 10:00:00
@@ -15255,7 +15255,7 @@ SELECT * FROM generate_series('2008-03-01 00:00'::timestamp,
 <programlisting>
 -- basic usage
 SELECT generate_subscripts('{NULL,1,NULL,2}'::int[], 1) AS s;
- s 
+ s
 ---
  1
  2
@@ -15266,7 +15266,7 @@ SELECT generate_subscripts('{NULL,1,NULL,2}'::int[], 1) AS s;
 -- presenting an array, the subscript and the subscripted
 -- value requires a subquery
 SELECT * FROM arrays;
-         a          
+         a
 --------------------
  {-1,-2}
  {100,200,300}
@@ -15292,7 +15292,7 @@ select $1[i][j]
 $$ LANGUAGE sql IMMUTABLE;
 CREATE FUNCTION
 SELECT * FROM unnest2(ARRAY[[1,2],[3,4]]);
- unnest2 
+ unnest2
 ---------
        1
        2
@@ -16922,13 +16922,13 @@ SELECT pg_type_is_visible('myschema.widget'::regtype);
 <programlisting>
 SELECT pg_typeof(33);
 
- pg_typeof 
+ pg_typeof
 -----------
  integer
 (1 row)
 
 SELECT typlen FROM pg_type WHERE oid = pg_typeof(33);
- typlen 
+ typlen
 --------
       4
 (1 row)
@@ -16940,13 +16940,13 @@ SELECT typlen FROM pg_type WHERE oid = pg_typeof(33);
    value that is passed to it.  Example:
 <programlisting>
 SELECT collation for (description) FROM pg_description LIMIT 1;
- pg_collation_for 
+ pg_collation_for
 ------------------
  "default"
 (1 row)
 
 SELECT collation for ('foo' COLLATE "de_DE");
- pg_collation_for 
+ pg_collation_for
 ------------------
  "de_DE"
 (1 row)
@@ -17963,7 +17963,7 @@ SELECT set_config('log_statement_stats', 'off', false);
     <primary>pg_xlogfile_name_offset</primary>
    </indexterm>
    <indexterm>
-    <primary>pg_xlog_location_diff</primary>
+    <primary>pg_wal_location_diff</primary>
    </indexterm>
 
    <para>
@@ -17971,7 +17971,7 @@ SELECT set_config('log_statement_stats', 'off', false);
     linkend="functions-admin-backup-table"> assist in making on-line backups.
     These functions cannot be executed during recovery (except
     <function>pg_is_in_backup</function>, <function>pg_backup_start_time</function>
-    and <function>pg_xlog_location_diff</function>).
+    and <function>pg_wal_location_diff</function>).
    </para>
 
    <table id="functions-admin-backup-table">
@@ -18069,10 +18069,10 @@ SELECT set_config('log_statement_stats', 'off', false);
       </row>
       <row>
        <entry>
-        <literal><function>pg_xlog_location_diff(<parameter>location</> <type>pg_lsn</>, <parameter>location</> <type>pg_lsn</>)</function></literal>
+        <literal><function>pg_wal_location_diff(<parameter>location</> <type>pg_lsn</>, <parameter>location</> <type>pg_lsn</>)</function></literal>
        </entry>
        <entry><type>numeric</></entry>
-       <entry>Calculate the difference between two transaction log locations</entry>
+       <entry>Calculate the difference between two transaction log locations (old name: pg_xlog_location_diff)</entry>
       </row>
      </tbody>
     </tgroup>
@@ -18167,7 +18167,7 @@ postgres=# select pg_start_backup('label_goes_here');
     above functions.  For example:
 <programlisting>
 postgres=# SELECT * FROM pg_xlogfile_name_offset(pg_stop_backup());
-        file_name         | file_offset 
+        file_name         | file_offset
 --------------------------+-------------
  00000001000000000000000D |     4039624
 (1 row)
@@ -18181,7 +18181,7 @@ postgres=# SELECT * FROM pg_xlogfile_name_offset(pg_stop_backup());
    </para>
 
    <para>
-    <function>pg_xlog_location_diff</> calculates the difference in bytes
+    <function>pg_wal_location_diff</> calculates the difference in bytes
     between two transaction log locations. It can be used with
     <structname>pg_stat_replication</structname> or some functions shown in
     <xref linkend="functions-admin-backup-table"> to get the replication lag.

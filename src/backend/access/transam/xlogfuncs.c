@@ -618,7 +618,7 @@ pg_is_in_recovery(PG_FUNCTION_ARGS)
  * Compute the difference in bytes between two WAL locations.
  */
 Datum
-pg_xlog_location_diff(PG_FUNCTION_ARGS)
+pg_wal_location_diff(PG_FUNCTION_ARGS)
 {
 	Datum		result;
 
