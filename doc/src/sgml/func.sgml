@@ -18242,10 +18242,10 @@ postgres=# SELECT * FROM pg_wal_file_name_offset(pg_stop_backup());
        <entry>Get last transaction log location received and synced to disk by
         streaming replication. While streaming replication is in progress
         this will increase monotonically. If recovery has completed this will
-        remain static at
-        the value of the last WAL record received and synced to disk during
-        recovery. If streaming replication is disabled, or if it has not yet
-        started, the function returns NULL.
+        remain static at the value of the last WAL record received and synced to
+        disk during recovery. If streaming replication is disabled, or if it has
+        not yet started, the function returns NULL. Old name:
+        pg_last_xlog_receive_location.
        </entry>
       </row>
       <row>
