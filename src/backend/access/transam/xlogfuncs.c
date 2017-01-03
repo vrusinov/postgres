@@ -573,10 +573,10 @@ pg_xlog_replay_resume(PG_FUNCTION_ARGS)
 }
 
 /*
- * pg_is_xlog_replay_paused
+ * pg_is_recovery_paused
  */
 Datum
-pg_is_xlog_replay_paused(PG_FUNCTION_ARGS)
+pg_is_recovery_paused(PG_FUNCTION_ARGS)
 {
 	if (!RecoveryInProgress())
 		ereport(ERROR,
