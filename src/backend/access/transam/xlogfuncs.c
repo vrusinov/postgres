@@ -348,7 +348,7 @@ pg_create_restore_point(PG_FUNCTION_ARGS)
  * to the kernel, but is not necessarily synced to disk.
  */
 Datum
-pg_current_xlog_location(PG_FUNCTION_ARGS)
+pg_current_wal_location(PG_FUNCTION_ARGS)
 {
 	XLogRecPtr	current_recptr;
 

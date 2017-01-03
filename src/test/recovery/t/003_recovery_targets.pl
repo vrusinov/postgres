@@ -57,7 +57,7 @@ $node_master->start;
 $node_master->safe_psql('postgres',
 	"CREATE TABLE tab_int AS SELECT generate_series(1,1000) AS a");
 my $lsn1 =
-  $node_master->safe_psql('postgres', "SELECT pg_current_xlog_location();");
+  $node_master->safe_psql('postgres', "SELECT pg_current_wal_location();");
 
 # Take backup from which all operations will be run
 $node_master->backup('my_backup');
@@ -67,14 +67,14 @@ $node_master->backup('my_backup');
 $node_master->safe_psql('postgres',
 	"INSERT INTO tab_int VALUES (generate_series(1001,2000))");
 my $ret = $node_master->safe_psql('postgres',
-	"SELECT pg_current_xlog_location(), txid_current();");
+	"SELECT pg_current_wal_location(), txid_current();");
 my ($lsn2, $recovery_txid) = split /\|/, $ret;
 
 # More data, with recovery target timestamp
 $node_master->safe_psql('postgres',
 	"INSERT INTO tab_int VALUES (generate_series(2001,3000))");
 $ret = $node_master->safe_psql('postgres',
-	"SELECT pg_current_xlog_location(), now();");
+	"SELECT pg_current_wal_location(), now();");
 my ($lsn3, $recovery_time) = split /\|/, $ret;
 
 # Even more data, this time with a recovery target name
@@ -82,16 +82,16 @@ $node_master->safe_psql('postgres',
 	"INSERT INTO tab_int VALUES (generate_series(3001,4000))");
 my $recovery_name = "my_target";
 my $lsn4 =
-  $node_master->safe_psql('postgres', "SELECT pg_current_xlog_location();");
+  $node_master->safe_psql('postgres', "SELECT pg_current_wal_location();");
 $node_master->safe_psql('postgres',
 	"SELECT pg_create_restore_point('$recovery_name');");
 
 # And now for a recovery target LSN
 $node_master->safe_psql('postgres',
 	"INSERT INTO tab_int VALUES (generate_series(4001,5000))");
-my $recovery_lsn = $node_master->safe_psql('postgres', "SELECT pg_current_xlog_location()");
+my $recovery_lsn = $node_master->safe_psql('postgres', "SELECT pg_current_wal_location()");
 my $lsn5 =
-  $node_master->safe_psql('postgres', "SELECT pg_current_xlog_location();");
+  $node_master->safe_psql('postgres', "SELECT pg_current_wal_location();");
 
 $node_master->safe_psql('postgres',
 	"INSERT INTO tab_int VALUES (generate_series(5001,6000))");

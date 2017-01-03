@@ -42,7 +42,7 @@ $node_master->safe_psql('postgres',
 # Now wait for replay to complete on standby. We're done waiting when the
 # slave has replayed up to the previously saved master LSN.
 my $until_lsn =
-  $node_master->safe_psql('postgres', "SELECT pg_current_xlog_location()");
+  $node_master->safe_psql('postgres', "SELECT pg_current_wal_location()");
 
 my $remaining = 90;
 while ($remaining-- > 0)

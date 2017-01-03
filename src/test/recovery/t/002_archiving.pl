@@ -33,7 +33,7 @@ $node_standby->start;
 $node_master->safe_psql('postgres',
 	"CREATE TABLE tab_int AS SELECT generate_series(1,1000) AS a");
 my $current_lsn =
-  $node_master->safe_psql('postgres', "SELECT pg_current_xlog_location();");
+  $node_master->safe_psql('postgres', "SELECT pg_current_wal_location();");
 
 # Force archiving of WAL file to make it present on master
 $node_master->safe_psql('postgres', "SELECT pg_switch_wal()");

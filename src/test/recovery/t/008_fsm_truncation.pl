@@ -68,7 +68,7 @@ vacuum verbose testtab;
 
 $node_master->psql('postgres', 'checkpoint');
 my $until_lsn =
-	$node_master->safe_psql('postgres', "SELECT pg_current_xlog_location();");
+	$node_master->safe_psql('postgres', "SELECT pg_current_wal_location();");
 
 # Wait long enough for standby to receive and apply all WAL
 my $caughtup_query =
