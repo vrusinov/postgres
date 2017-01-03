@@ -431,7 +431,7 @@ pg_last_wal_receive_location(PG_FUNCTION_ARGS)
  * connections during recovery.
  */
 Datum
-pg_last_xlog_replay_location(PG_FUNCTION_ARGS)
+pg_last_wal_replay_location(PG_FUNCTION_ARGS)
 {
 	XLogRecPtr	recptr;
 

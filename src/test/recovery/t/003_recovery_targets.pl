@@ -32,7 +32,7 @@ sub test_recovery_standby
 
 	# Wait until standby has replayed enough data
 	my $caughtup_query =
-	  "SELECT '$until_lsn'::pg_lsn <= pg_last_xlog_replay_location()";
+	  "SELECT '$until_lsn'::pg_lsn <= pg_last_wal_replay_location()";
 	$node_standby->poll_query_until('postgres', $caughtup_query)
 	  or die "Timed out while waiting for standby to catch up";
 

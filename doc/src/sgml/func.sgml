@@ -18204,7 +18204,7 @@ postgres=# SELECT * FROM pg_xlogfile_name_offset(pg_stop_backup());
     <primary>pg_last_wal_receive_location</primary>
    </indexterm>
    <indexterm>
-    <primary>pg_last_xlog_replay_location</primary>
+    <primary>pg_last_wal_replay_location</primary>
    </indexterm>
    <indexterm>
     <primary>pg_last_xact_replay_timestamp</primary>
@@ -18250,7 +18250,7 @@ postgres=# SELECT * FROM pg_xlogfile_name_offset(pg_stop_backup());
       </row>
       <row>
        <entry>
-        <literal><function>pg_last_xlog_replay_location()</function></literal>
+        <literal><function>pg_last_wal_replay_location()</function></literal>
         </entry>
        <entry><type>pg_lsn</type></entry>
        <entry>Get last transaction log location replayed during recovery.
@@ -18258,7 +18258,7 @@ postgres=# SELECT * FROM pg_xlogfile_name_offset(pg_stop_backup());
         If recovery has completed then this value will remain static at
         the value of the last WAL record applied during that recovery.
         When the server has been started normally without recovery
-        the function returns NULL.
+        the function returns NULL. Old name: pg_last_xlog_replay_location.
        </entry>
       </row>
       <row>
