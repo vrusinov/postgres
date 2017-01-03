@@ -18009,7 +18009,10 @@ SELECT set_config('log_statement_stats', 'off', false);
         <literal><function>pg_current_wal_location()</function></literal>
         </entry>
        <entry><type>pg_lsn</type></entry>
-       <entry>Get current transaction log write location</entry>
+       <entry>
+        Get current transaction log write location. Old name:
+        pg_current_xlog_location
+       </entry>
       </row>
       <row>
        <entry>
