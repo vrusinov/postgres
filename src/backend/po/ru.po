@@ -2401,8 +2401,8 @@ msgstr "восстановление приостановлено"
 
 #: access/transam/xlog.c:5645
 #, c-format
-msgid "Execute pg_xlog_replay_resume() to continue."
-msgstr "Выполните pg_xlog_replay_resume() для продолжения."
+msgid "Execute pg_wal_replay_resume() to continue."
+msgstr "Выполните pg_wal_replay_resume() для продолжения."
 
 #: access/transam/xlog.c:5852
 #, c-format
@@ -3265,14 +3265,14 @@ msgstr "значение для точки восстановления прев
 
 #: access/transam/xlogfuncs.c:472
 #, c-format
-msgid "pg_xlogfile_name_offset() cannot be executed during recovery."
+msgid "pg_wal_file_name_offset() cannot be executed during recovery."
 msgstr ""
-"Функцию pg_xlogfile_name_offset() нельзя вызывать во время восстановления."
+"Функцию pg_wal_file_name_offset() нельзя вызывать во время восстановления."
 
 #: access/transam/xlogfuncs.c:528
 #, c-format
-msgid "pg_xlogfile_name() cannot be executed during recovery."
-msgstr "Функцию pg_xlogfile_name() нельзя вызывать в процессе восстановления."
+msgid "pg_wal_file_name() cannot be executed during recovery."
+msgstr "Функцию pg_wal_file_name() нельзя вызывать в процессе восстановления."
 
 #: access/transam/xlogfuncs.c:548 access/transam/xlogfuncs.c:568
 #: access/transam/xlogfuncs.c:585

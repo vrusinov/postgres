@@ -277,13 +277,13 @@ pg_stop_backup_v2(PG_FUNCTION_ARGS)
 }
 
 /*
- * pg_switch_xlog: switch to next xlog file
+ * pg_switch_wal: switch to next WAL file
  *
  * Permission checking for this function is managed through the normal
  * GRANT system.
  */
 Datum
-pg_switch_xlog(PG_FUNCTION_ARGS)
+pg_switch_wal(PG_FUNCTION_ARGS)
 {
 	XLogRecPtr	switchpoint;
 
@@ -349,7 +349,7 @@ pg_create_restore_point(PG_FUNCTION_ARGS)
  * to the kernel, but is not necessarily synced to disk.
  */
 Datum
-pg_current_xlog_location(PG_FUNCTION_ARGS)
+pg_current_wal_location(PG_FUNCTION_ARGS)
 {
 	XLogRecPtr	current_recptr;
 
@@ -370,7 +370,7 @@ pg_current_xlog_location(PG_FUNCTION_ARGS)
  * This function is mostly for debugging purposes.
  */
 Datum
-pg_current_xlog_insert_location(PG_FUNCTION_ARGS)
+pg_current_wal_insert_location(PG_FUNCTION_ARGS)
 {
 	XLogRecPtr	current_recptr;
 
@@ -391,7 +391,7 @@ pg_current_xlog_insert_location(PG_FUNCTION_ARGS)
  * This function is mostly for debugging purposes.
  */
 Datum
-pg_current_xlog_flush_location(PG_FUNCTION_ARGS)
+pg_current_wal_flush_location(PG_FUNCTION_ARGS)
 {
 	XLogRecPtr	current_recptr;
 
@@ -413,7 +413,7 @@ pg_current_xlog_flush_location(PG_FUNCTION_ARGS)
  * and synced to disk by walreceiver.
  */
 Datum
-pg_last_xlog_receive_location(PG_FUNCTION_ARGS)
+pg_last_wal_receive_location(PG_FUNCTION_ARGS)
 {
 	XLogRecPtr	recptr;
 
@@ -432,7 +432,7 @@ pg_last_xlog_receive_location(PG_FUNCTION_ARGS)
  * connections during recovery.
  */
 Datum
-pg_last_xlog_replay_location(PG_FUNCTION_ARGS)
+pg_last_wal_replay_location(PG_FUNCTION_ARGS)
 {
 	XLogRecPtr	recptr;
 
@@ -445,15 +445,15 @@ pg_last_xlog_replay_location(PG_FUNCTION_ARGS)
 }
 
 /*
- * Compute an xlog file name and decimal byte offset given a WAL location,
- * such as is returned by pg_stop_backup() or pg_xlog_switch().
+ * Compute an WAL file name and decimal byte offset given a WAL location,
+ * such as is returned by pg_stop_backup() or pg_switch_wal().
  *
  * Note that a location exactly at a segment boundary is taken to be in
  * the previous segment.  This is usually the right thing, since the
  * expected usage is to determine which xlog file(s) are ready to archive.
  */
 Datum
-pg_xlogfile_name_offset(PG_FUNCTION_ARGS)
+pg_wal_file_name_offset(PG_FUNCTION_ARGS)
 {
 	XLogSegNo	xlogsegno;
 	uint32		xrecoff;
@@ -469,7 +469,8 @@ pg_xlogfile_name_offset(PG_FUNCTION_ARGS)
 		ereport(ERROR,
 				(errcode(ERRCODE_OBJECT_NOT_IN_PREREQUISITE_STATE),
 				 errmsg("recovery is in progress"),
-				 errhint("pg_xlogfile_name_offset() cannot be executed during recovery.")));
+				 errhint(
+					 "pg_wal_file_name_offset() cannot be executed during recovery.")));
 
 	/*
 	 * Construct a tuple descriptor for the result row.  This must match this
@@ -512,10 +513,10 @@ pg_xlogfile_name_offset(PG_FUNCTION_ARGS)
 
 /*
  * Compute an xlog file name given a WAL location,
- * such as is returned by pg_stop_backup() or pg_xlog_switch().
+ * such as is returned by pg_stop_backup() or pg_switch_wal().
  */
 Datum
-pg_xlogfile_name(PG_FUNCTION_ARGS)
+pg_wal_file_name(PG_FUNCTION_ARGS)
 {
 	XLogSegNo	xlogsegno;
 	XLogRecPtr	locationpoint = PG_GETARG_LSN(0);
@@ -525,7 +526,7 @@ pg_xlogfile_name(PG_FUNCTION_ARGS)
 		ereport(ERROR,
 				(errcode(ERRCODE_OBJECT_NOT_IN_PREREQUISITE_STATE),
 				 errmsg("recovery is in progress"),
-		 errhint("pg_xlogfile_name() cannot be executed during recovery.")));
+		 errhint("pg_wal_file_name() cannot be executed during recovery.")));
 
 	XLByteToPrevSeg(locationpoint, xlogsegno);
 	XLogFileName(xlogfilename, ThisTimeLineID, xlogsegno);
@@ -534,13 +535,13 @@ pg_xlogfile_name(PG_FUNCTION_ARGS)
 }
 
 /*
- * pg_xlog_replay_pause - pause recovery now
+ * pg_wal_replay_pause - pause recovery now
  *
  * Permission checking for this function is managed through the normal
  * GRANT system.
  */
 Datum
-pg_xlog_replay_pause(PG_FUNCTION_ARGS)
+pg_wal_replay_pause(PG_FUNCTION_ARGS)
 {
 	if (!RecoveryInProgress())
 		ereport(ERROR,
@@ -554,13 +555,13 @@ pg_xlog_replay_pause(PG_FUNCTION_ARGS)
 }
 
 /*
- * pg_xlog_replay_resume - resume recovery now
+ * pg_wal_replay_resume - resume recovery now
  *
  * Permission checking for this function is managed through the normal
  * GRANT system.
  */
 Datum
-pg_xlog_replay_resume(PG_FUNCTION_ARGS)
+pg_wal_replay_resume(PG_FUNCTION_ARGS)
 {
 	if (!RecoveryInProgress())
 		ereport(ERROR,
@@ -574,10 +575,10 @@ pg_xlog_replay_resume(PG_FUNCTION_ARGS)
 }
 
 /*
- * pg_is_xlog_replay_paused
+ * pg_is_recovery_paused
  */
 Datum
-pg_is_xlog_replay_paused(PG_FUNCTION_ARGS)
+pg_is_recovery_paused(PG_FUNCTION_ARGS)
 {
 	if (!RecoveryInProgress())
 		ereport(ERROR,
@@ -619,7 +620,7 @@ pg_is_in_recovery(PG_FUNCTION_ARGS)
  * Compute the difference in bytes between two WAL locations.
  */
 Datum
-pg_xlog_location_diff(PG_FUNCTION_ARGS)
+pg_wal_location_diff(PG_FUNCTION_ARGS)
 {
 	Datum		result;
 

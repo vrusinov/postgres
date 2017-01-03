@@ -1480,8 +1480,8 @@ msgstr "recuperação está em pausa"
 
 #: access/transam/xlog.c:5699
 #, c-format
-msgid "Execute pg_xlog_replay_resume() to continue."
-msgstr "Execute pg_xlog_replay_resume() para continuar."
+msgid "Execute pg_wal_replay_resume() to continue."
+msgstr "Execute pg_wal_replay_resume() para continuar."
 
 #: access/transam/xlog.c:5914
 #, c-format
@@ -2143,13 +2143,13 @@ msgstr "valor é muito longo para ponto de restauração (máximo de %d caracter
 
 #: access/transam/xlogfuncs.c:271
 #, c-format
-msgid "pg_xlogfile_name_offset() cannot be executed during recovery."
-msgstr "pg_xlogfile_name_offset() não pode ser executado durante recuperação."
+msgid "pg_wal_file_name_offset() cannot be executed during recovery."
+msgstr "pg_wal_file_name_offset() não pode ser executado durante recuperação."
 
 #: access/transam/xlogfuncs.c:327
 #, c-format
-msgid "pg_xlogfile_name() cannot be executed during recovery."
-msgstr "pg_xlogfile_name() não pode ser executado durante recuperação."
+msgid "pg_wal_file_name() cannot be executed during recovery."
+msgstr "pg_wal_file_name() não pode ser executado durante recuperação."
 
 #: access/transam/xlogfuncs.c:344 access/transam/xlogfuncs.c:366
 #, c-format

@@ -2052,8 +2052,8 @@ msgstr "Wiederherstellung wurde pausiert"
 
 #: access/transam/xlog.c:5643
 #, c-format
-msgid "Execute pg_xlog_replay_resume() to continue."
-msgstr "Führen Sie pg_xlog_replay_resume() aus um fortzusetzen."
+msgid "Execute pg_wal_replay_resume() to continue."
+msgstr "Führen Sie pg_wal_replay_resume() aus um fortzusetzen."
 
 #: access/transam/xlog.c:5850
 #, c-format
@@ -2789,13 +2789,13 @@ msgstr "Wert zu lang für Restore-Punkt (maximal %d Zeichen)"
 
 #: access/transam/xlogfuncs.c:472
 #, c-format
-msgid "pg_xlogfile_name_offset() cannot be executed during recovery."
-msgstr "pg_xlogfile_name_offset() kann nicht während der Wiederherstellung ausgeführt werden."
+msgid "pg_wal_file_name_offset() cannot be executed during recovery."
+msgstr "pg_wal_file_name_offset() kann nicht während der Wiederherstellung ausgeführt werden."
 
 #: access/transam/xlogfuncs.c:528
 #, c-format
-msgid "pg_xlogfile_name() cannot be executed during recovery."
-msgstr "pg_xlogfile_name() kann nicht während der Wiederherstellung ausgeführt werden."
+msgid "pg_wal_file_name() cannot be executed during recovery."
+msgstr "pg_wal_file_name() kann nicht während der Wiederherstellung ausgeführt werden."
 
 #: access/transam/xlogfuncs.c:548 access/transam/xlogfuncs.c:568
 #: access/transam/xlogfuncs.c:585

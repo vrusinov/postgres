@@ -3127,37 +3127,51 @@ DESCR("get OID of current session's temp schema, if any");
 DATA(insert OID = 2855 (  pg_is_other_temp_schema	PGNSP PGUID 12 1 0 0 0 f f f f t f s s 1 0 16 "26" _null_ _null_ _null_ _null_ _null_ pg_is_other_temp_schema _null_ _null_ _null_ ));
 DESCR("is schema another session's temp schema?");
 
-DATA(insert OID = 2171 ( pg_cancel_backend		PGNSP PGUID 12 1 0 0 0 f f f f t f v s 1 0 16 "23" _null_ _null_ _null_ _null_ _null_ pg_cancel_backend _null_ _null_ _null_ ));
+DATA(insert OID = 2171 ( pg_cancel_backend		           PGNSP PGUID 12 1 0 0 0 f f f f t f v s 1 0 16 "23" _null_ _null_ _null_ _null_ _null_ pg_cancel_backend _null_ _null_ _null_ ));
 DESCR("cancel a server process' current query");
-DATA(insert OID = 2096 ( pg_terminate_backend		PGNSP PGUID 12 1 0 0 0 f f f f t f v s 1 0 16 "23" _null_ _null_ _null_ _null_ _null_ pg_terminate_backend _null_ _null_ _null_ ));
+DATA(insert OID = 2096 ( pg_terminate_backend		         PGNSP PGUID 12 1 0 0 0 f f f f t f v s 1 0 16 "23" _null_ _null_ _null_ _null_ _null_ pg_terminate_backend _null_ _null_ _null_ ));
 DESCR("terminate a server process");
-DATA(insert OID = 2172 ( pg_start_backup		PGNSP PGUID 12 1 0 0 0 f f f f t f v r 3 0 3220 "25 16 16" _null_ _null_ _null_ _null_ _null_ pg_start_backup _null_ _null_ _null_ ));
+DATA(insert OID = 2172 ( pg_start_backup		             PGNSP PGUID 12 1 0 0 0 f f f f t f v r 3 0 3220 "25 16 16" _null_ _null_ _null_ _null_ _null_ pg_start_backup _null_ _null_ _null_ ));
 DESCR("prepare for taking an online backup");
-DATA(insert OID = 2173 ( pg_stop_backup			PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 3220 "" _null_ _null_ _null_ _null_ _null_ pg_stop_backup _null_ _null_ _null_ ));
+DATA(insert OID = 2173 ( pg_stop_backup			             PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 3220 "" _null_ _null_ _null_ _null_ _null_ pg_stop_backup _null_ _null_ _null_ ));
 DESCR("finish taking an online backup");
-DATA(insert OID = 2739 ( pg_stop_backup			PGNSP PGUID 12 1 1 0 0 f f f f t t v s 1 0 2249 "16" "{16,3220,25,25}" "{i,o,o,o}" "{exclusive,lsn,labelfile,spcmapfile}" _null_ _null_ pg_stop_backup_v2 _null_ _null_ _null_ ));
+DATA(insert OID = 2739 ( pg_stop_backup			             PGNSP PGUID 12 1 1 0 0 f f f f t t v s 1 0 2249 "16" "{16,3220,25,25}" "{i,o,o,o}" "{exclusive,lsn,labelfile,spcmapfile}" _null_ _null_ pg_stop_backup_v2 _null_ _null_ _null_ ));
 DESCR("finish taking an online backup");
-DATA(insert OID = 3813 ( pg_is_in_backup		PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 16 "" _null_ _null_ _null_ _null_ _null_ pg_is_in_backup _null_ _null_ _null_ ));
+DATA(insert OID = 3813 ( pg_is_in_backup		             PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 16 "" _null_ _null_ _null_ _null_ _null_ pg_is_in_backup _null_ _null_ _null_ ));
 DESCR("true if server is in online backup");
-DATA(insert OID = 3814 ( pg_backup_start_time		PGNSP PGUID 12 1 0 0 0 f f f f t f s s 0 0 1184 "" _null_ _null_ _null_ _null_ _null_ pg_backup_start_time _null_ _null_ _null_ ));
+DATA(insert OID = 3814 ( pg_backup_start_time		         PGNSP PGUID 12 1 0 0 0 f f f f t f s s 0 0 1184 "" _null_ _null_ _null_ _null_ _null_ pg_backup_start_time _null_ _null_ _null_ ));
 DESCR("start time of an online backup");
-DATA(insert OID = 2848 ( pg_switch_xlog			PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 3220 "" _null_ _null_ _null_ _null_ _null_ pg_switch_xlog _null_ _null_ _null_ ));
-DESCR("switch to new xlog file");
-DATA(insert OID = 3098 ( pg_create_restore_point	PGNSP PGUID 12 1 0 0 0 f f f f t f v s 1 0 3220 "25" _null_ _null_ _null_ _null_ _null_ pg_create_restore_point _null_ _null_ _null_ ));
+DATA(insert OID = 3449 ( pg_switch_wal			             PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 3220 "" _null_ _null_ _null_ _null_ _null_ pg_switch_wal _null_ _null_ _null_ ));
+DESCR("switch to new WAL file");
+DATA(insert OID = 2848 ( pg_switch_xlog			             PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 3220 "" _null_ _null_ _null_ _null_ _null_ pg_switch_wal _null_ _null_ _null_ ));
+DESCR("historical alias for pg_switch_wal");
+DATA(insert OID = 3098 ( pg_create_restore_point	       PGNSP PGUID 12 1 0 0 0 f f f f t f v s 1 0 3220 "25" _null_ _null_ _null_ _null_ _null_ pg_create_restore_point _null_ _null_ _null_ ));
 DESCR("create a named restore point");
-DATA(insert OID = 2849 ( pg_current_xlog_location	PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 3220 "" _null_ _null_ _null_ _null_ _null_ pg_current_xlog_location _null_ _null_ _null_ ));
-DESCR("current xlog write location");
-DATA(insert OID = 2852 ( pg_current_xlog_insert_location	PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 3220 "" _null_ _null_ _null_ _null_ _null_ pg_current_xlog_insert_location _null_ _null_ _null_ ));
-DESCR("current xlog insert location");
-DATA(insert OID = 3330 ( pg_current_xlog_flush_location PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 3220 "" _null_ _null_ _null_ _null_ _null_ pg_current_xlog_flush_location _null_ _null_ _null_ ));
-DESCR("current xlog flush location");
-DATA(insert OID = 2850 ( pg_xlogfile_name_offset	PGNSP PGUID 12 1 0 0 0 f f f f t f i s 1 0 2249 "3220" "{3220,25,23}" "{i,o,o}" "{wal_location,file_name,file_offset}" _null_ _null_ pg_xlogfile_name_offset _null_ _null_ _null_ ));
-DESCR("xlog filename and byte offset, given an xlog location");
-DATA(insert OID = 2851 ( pg_xlogfile_name			PGNSP PGUID 12 1 0 0 0 f f f f t f i s 1 0 25 "3220" _null_ _null_ _null_ _null_ _null_ pg_xlogfile_name _null_ _null_ _null_ ));
-DESCR("xlog filename, given an xlog location");
+DATA(insert OID = 3800 ( pg_current_wal_location         PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 3220 "" _null_ _null_ _null_ _null_ _null_ pg_current_wal_location _null_ _null_ _null_ ));
+DESCR("current WAL write location");
+DATA(insert OID = 2849 ( pg_current_xlog_location        PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 3220 "" _null_ _null_ _null_ _null_ _null_ pg_current_wal_location _null_ _null_ _null_ ));
+DESCR("historical alias for pg_current_xlog_location");
+DATA(insert OID = 3801 ( pg_current_wal_insert_location  PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 3220 "" _null_ _null_ _null_ _null_ _null_ pg_current_wal_insert_location _null_ _null_ _null_ ));
+DESCR("current WAL insert location");
+DATA(insert OID = 2852 ( pg_current_xlog_insert_location PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 3220 "" _null_ _null_ _null_ _null_ _null_ pg_current_wal_insert_location _null_ _null_ _null_ ));
+DESCR("historical alias for pg_current_wal_insert_location");
+DATA(insert OID = 6015 ( pg_current_wal_flush_location   PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 3220 "" _null_ _null_ _null_ _null_ _null_ pg_current_wal_flush_location _null_ _null_ _null_ ));
+DESCR("current WAL flush location");
+DATA(insert OID = 3330 ( pg_current_xlog_flush_location  PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 3220 "" _null_ _null_ _null_ _null_ _null_ pg_current_wal_flush_location _null_ _null_ _null_ ));
+DESCR("historical alias for pg_current_wal_flush_location");
+DATA(insert OID = 3452 ( pg_wal_file_name_offset	       PGNSP PGUID 12 1 0 0 0 f f f f t f i s 1 0 2249 "3220" "{3220,25,23}" "{i,o,o}" "{wal_location,file_name,file_offset}" _null_ _null_ pg_wal_file_name_offset _null_ _null_ _null_ ));
+DESCR("WAL filename and byte offset, given an WAL location");
+DATA(insert OID = 2850 ( pg_xlogfile_name_offset	       PGNSP PGUID 12 1 0 0 0 f f f f t f i s 1 0 2249 "3220" "{3220,25,23}" "{i,o,o}" "{wal_location,file_name,file_offset}" _null_ _null_ pg_wal_file_name_offset _null_ _null_ _null_ ));
+DESCR("historical alias for pg_wal_file_name_offset");
+DATA(insert OID = 3453 ( pg_wal_file_name			           PGNSP PGUID 12 1 0 0 0 f f f f t f i s 1 0 25   "3220" _null_ _null_ _null_ _null_ _null_ pg_wal_file_name _null_ _null_ _null_ ));
+DESCR("WAL filename, given a WAL location");
+DATA(insert OID = 2851 ( pg_xlogfile_name			           PGNSP PGUID 12 1 0 0 0 f f f f t f i s 1 0 25   "3220" _null_ _null_ _null_ _null_ _null_ pg_wal_file_name _null_ _null_ _null_ ));
+DESCR("historical alias for pg_wal_file_name");
 
-DATA(insert OID = 3165 ( pg_xlog_location_diff		PGNSP PGUID 12 1 0 0 0 f f f f t f i s 2 0 1700 "3220 3220" _null_ _null_ _null_ _null_ _null_ pg_xlog_location_diff _null_ _null_ _null_ ));
-DESCR("difference in bytes, given two xlog locations");
+DATA(insert OID = 3445 ( pg_wal_location_diff		PGNSP PGUID 12 1 0 0 0 f f f f t f i s 2 0 1700 "3220 3220" _null_ _null_ _null_ _null_ _null_ pg_wal_location_diff _null_ _null_ _null_ ));
+DESCR("difference in bytes, given two WAL locations");
+DATA(insert OID = 3165 ( pg_xlog_location_diff		PGNSP PGUID 12 1 0 0 0 f f f f t f i s 2 0 1700 "3220 3220" _null_ _null_ _null_ _null_ _null_ pg_wal_location_diff _null_ _null_ _null_ ));
+DESCR("historical alias for pg_wal_location_diff");
 
 DATA(insert OID = 3809 ( pg_export_snapshot		PGNSP PGUID 12 1 0 0 0 f f f f t f v u 0 0 25 "" _null_ _null_ _null_ _null_ _null_ pg_export_snapshot _null_ _null_ _null_ ));
 DESCR("export a snapshot");
@@ -3165,19 +3179,29 @@ DESCR("export a snapshot");
 DATA(insert OID = 3810 (  pg_is_in_recovery		PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 16 "" _null_ _null_ _null_ _null_ _null_ pg_is_in_recovery _null_ _null_ _null_ ));
 DESCR("true if server is in recovery");
 
-DATA(insert OID = 3820 ( pg_last_xlog_receive_location	PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 3220 "" _null_ _null_ _null_ _null_ _null_ pg_last_xlog_receive_location _null_ _null_ _null_ ));
-DESCR("current xlog flush location");
-DATA(insert OID = 3821 ( pg_last_xlog_replay_location	PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 3220 "" _null_ _null_ _null_ _null_ _null_ pg_last_xlog_replay_location _null_ _null_ _null_ ));
-DESCR("last xlog replay location");
+DATA(insert OID = 3446 ( pg_last_wal_receive_location	PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 3220 "" _null_ _null_ _null_ _null_ _null_ pg_last_wal_receive_location _null_ _null_ _null_ ));
+DESCR("current wal flush location");
+DATA(insert OID = 3820 ( pg_last_xlog_receive_location	PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 3220 "" _null_ _null_ _null_ _null_ _null_ pg_last_wal_receive_location _null_ _null_ _null_ ));
+DESCR("historical alias for pg_last_wal_receive_location");
+DATA(insert OID = 3447 ( pg_last_wal_replay_location	PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 3220 "" _null_ _null_ _null_ _null_ _null_ pg_last_wal_replay_location _null_ _null_ _null_ ));
+DESCR("last wal replay location");
+DATA(insert OID = 3821 ( pg_last_xlog_replay_location	PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 3220 "" _null_ _null_ _null_ _null_ _null_ pg_last_wal_replay_location _null_ _null_ _null_ ));
+DESCR("historical alias for pg_last_wal_replay_location");
 DATA(insert OID = 3830 ( pg_last_xact_replay_timestamp	PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 1184 "" _null_ _null_ _null_ _null_ _null_ pg_last_xact_replay_timestamp _null_ _null_ _null_ ));
 DESCR("timestamp of last replay xact");
 
-DATA(insert OID = 3071 ( pg_xlog_replay_pause		PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 2278 "" _null_ _null_ _null_ _null_ _null_ pg_xlog_replay_pause _null_ _null_ _null_ ));
-DESCR("pause xlog replay");
-DATA(insert OID = 3072 ( pg_xlog_replay_resume		PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 2278 "" _null_ _null_ _null_ _null_ _null_ pg_xlog_replay_resume _null_ _null_ _null_ ));
-DESCR("resume xlog replay, if it was paused");
-DATA(insert OID = 3073 ( pg_is_xlog_replay_paused	PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 16 "" _null_ _null_ _null_ _null_ _null_ pg_is_xlog_replay_paused _null_ _null_ _null_ ));
-DESCR("true if xlog replay is paused");
+DATA(insert OID = 3450 ( pg_wal_replay_pause      PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 2278 "" _null_ _null_ _null_ _null_ _null_ pg_wal_replay_pause _null_ _null_ _null_ ));
+DESCR("pause WAL replay");
+DATA(insert OID = 3071 ( pg_xlog_replay_pause		  PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 2278 "" _null_ _null_ _null_ _null_ _null_ pg_wal_replay_pause _null_ _null_ _null_ ));
+DESCR("historical alias for pg_wal_replay_pause");
+DATA(insert OID = 3451 ( pg_wal_replay_resume     PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 2278 "" _null_ _null_ _null_ _null_ _null_ pg_wal_replay_resume _null_ _null_ _null_ ));
+DESCR("resume WAL replay, if it was paused");
+DATA(insert OID = 3072 ( pg_xlog_replay_resume	  PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 2278 "" _null_ _null_ _null_ _null_ _null_ pg_wal_replay_resume _null_ _null_ _null_ ));
+DESCR("historical alias for pg_wal_replay_resume");
+DATA(insert OID = 3448 ( pg_is_recovery_paused	  PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 16   "" _null_ _null_ _null_ _null_ _null_ pg_is_recovery_paused _null_ _null_ _null_ ));
+DESCR("true if WAL replay for recovery is paused");
+DATA(insert OID = 3073 ( pg_is_xlog_replay_paused	PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 16   "" _null_ _null_ _null_ _null_ _null_ pg_is_recovery_paused _null_ _null_ _null_ ));
+DESCR("historical alias for pg_is_recovery_paused");
 
 DATA(insert OID = 2621 ( pg_reload_conf			PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 16 "" _null_ _null_ _null_ _null_ _null_ pg_reload_conf _null_ _null_ _null_ ));
 DESCR("reload configuration files");
@@ -5344,6 +5368,8 @@ DESCR("pg_controldata recovery state information as a function");
 
 DATA(insert OID = 3444 ( pg_control_init PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 2249 "" "{23,23,23,23,23,23,23,23,23,16,16,16,23}" "{o,o,o,o,o,o,o,o,o,o,o,o,o}" "{max_data_alignment,database_block_size,blocks_per_segment,wal_block_size,bytes_per_wal_segment,max_identifier_length,max_index_columns,max_toast_chunk_size,large_object_chunk_size,bigint_timestamps,float4_pass_by_value,float8_pass_by_value,data_page_checksum_version}" _null_ _null_ pg_control_init _null_ _null_ _null_ ));
 DESCR("pg_controldata init state information as a function");
+
+/*  Next OID: 6016 */
 
 /*
  * Symbolic values for provolatile column: these indicate whether the result

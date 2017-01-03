@@ -1347,8 +1347,8 @@ msgstr "リカバリはすでに停止されています"
 
 #: access/transam/xlog.c:5804
 #, c-format
-msgid "Execute pg_xlog_replay_resume() to continue."
-msgstr "pg_xlog_replay_resume() を動かして処理を継続してください"
+msgid "Execute pg_wal_replay_resume() to continue."
+msgstr "pg_wal_replay_resume() を動かして処理を継続してください"
 
 #: access/transam/xlog.c:5934
 #, c-format
@@ -2042,8 +2042,8 @@ msgstr "リストアポイントとしては値が長すぎます（最大 %d �
 
 #: access/transam/xlogfuncs.c:290
 #, c-format
-msgid "pg_xlogfile_name_offset() cannot be executed during recovery."
-msgstr "リカバリ中は pg_xlogfile_name_offset() を実行できません"
+msgid "pg_wal_file_name_offset() cannot be executed during recovery."
+msgstr "リカバリ中は pg_wal_file_name_offset() を実行できません"
 
 #: access/transam/xlogfuncs.c:302 access/transam/xlogfuncs.c:373
 #: access/transam/xlogfuncs.c:530 access/transam/xlogfuncs.c:536
@@ -2053,8 +2053,8 @@ msgstr "トランザクションログ位置\"%s\"を解析できませんでし
 
 #: access/transam/xlogfuncs.c:364
 #, c-format
-msgid "pg_xlogfile_name() cannot be executed during recovery."
-msgstr "リカバリ中は pg_xlogfile_name() を実行できません"
+msgid "pg_wal_file_name() cannot be executed during recovery."
+msgstr "リカバリ中は pg_wal_file_name() を実行できません"
 
 #: access/transam/xlogfuncs.c:392 access/transam/xlogfuncs.c:414
 #: access/transam/xlogfuncs.c:436
