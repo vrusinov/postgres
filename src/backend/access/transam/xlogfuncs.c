@@ -276,13 +276,13 @@ pg_stop_backup_v2(PG_FUNCTION_ARGS)
 }
 
 /*
- * pg_switch_xlog: switch to next xlog file
+ * pg_switch_wal: switch to next WAL file
  *
  * Permission checking for this function is managed through the normal
  * GRANT system.
  */
 Datum
-pg_switch_xlog(PG_FUNCTION_ARGS)
+pg_switch_wal(PG_FUNCTION_ARGS)
 {
 	XLogRecPtr	switchpoint;
 

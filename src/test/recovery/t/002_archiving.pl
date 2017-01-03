@@ -36,7 +36,7 @@ my $current_lsn =
   $node_master->safe_psql('postgres', "SELECT pg_current_xlog_location();");
 
 # Force archiving of WAL file to make it present on master
-$node_master->safe_psql('postgres', "SELECT pg_switch_xlog()");
+$node_master->safe_psql('postgres', "SELECT pg_switch_wal()");
 
 # Add some more content, it should not be present on standby
 $node_master->safe_psql('postgres',
