@@ -18069,7 +18069,10 @@ SELECT set_config('log_statement_stats', 'off', false);
         <literal><function>pg_wal_file_name_offset(<parameter>location</> <type>pg_lsn</>)</function></literal>
         </entry>
        <entry><type>text</>, <type>integer</></entry>
-       <entry>Convert transaction log location string to file name and decimal byte offset within file</entry>
+       <entry>
+        Convert transaction log location string to file name and decimal byte
+        offset within file. Old name: pg_xlogfile_name_offset.
+       </entry>
       </row>
       <row>
        <entry>
