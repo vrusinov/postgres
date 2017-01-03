@@ -18258,7 +18258,7 @@ postgres=# SELECT * FROM pg_wal_file_name_offset(pg_stop_backup());
         If recovery has completed then this value will remain static at
         the value of the last WAL record applied during that recovery.
         When the server has been started normally without recovery
-        the function returns NULL.
+        the function returns NULL. Old name: pg_last_xlog_replay_location.
        </entry>
       </row>
       <row>
