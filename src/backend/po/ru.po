@@ -3271,8 +3271,8 @@ msgstr ""
 
 #: access/transam/xlogfuncs.c:528
 #, c-format
-msgid "pg_xlogfile_name() cannot be executed during recovery."
-msgstr "Функцию pg_xlogfile_name() нельзя вызывать в процессе восстановления."
+msgid "pg_wal_file_name() cannot be executed during recovery."
+msgstr "Функцию pg_wal_file_name() нельзя вызывать в процессе восстановления."
 
 #: access/transam/xlogfuncs.c:548 access/transam/xlogfuncs.c:568
 #: access/transam/xlogfuncs.c:585

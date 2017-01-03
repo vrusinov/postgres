@@ -515,7 +515,7 @@ pg_wal_file_name_offset(PG_FUNCTION_ARGS)
  * such as is returned by pg_stop_backup() or pg_switch_wal().
  */
 Datum
-pg_xlogfile_name(PG_FUNCTION_ARGS)
+pg_wal_file_name(PG_FUNCTION_ARGS)
 {
 	XLogSegNo	xlogsegno;
 	XLogRecPtr	locationpoint = PG_GETARG_LSN(0);
@@ -525,7 +525,7 @@ pg_xlogfile_name(PG_FUNCTION_ARGS)
 		ereport(ERROR,
 				(errcode(ERRCODE_OBJECT_NOT_IN_PREREQUISITE_STATE),
 				 errmsg("recovery is in progress"),
-		 errhint("pg_xlogfile_name() cannot be executed during recovery.")));
+		 errhint("pg_wal_file_name() cannot be executed during recovery.")));
 
 	XLByteToPrevSeg(locationpoint, xlogsegno);
 	XLogFileName(xlogfilename, ThisTimeLineID, xlogsegno);

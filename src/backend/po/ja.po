@@ -2053,8 +2053,8 @@ msgstr "トランザクションログ位置\"%s\"を解析できませんでし
 
 #: access/transam/xlogfuncs.c:364
 #, c-format
-msgid "pg_xlogfile_name() cannot be executed during recovery."
-msgstr "リカバリ中は pg_xlogfile_name() を実行できません"
+msgid "pg_wal_file_name() cannot be executed during recovery."
+msgstr "リカバリ中は pg_wal_file_name() を実行できません"
 
 #: access/transam/xlogfuncs.c:392 access/transam/xlogfuncs.c:414
 #: access/transam/xlogfuncs.c:436

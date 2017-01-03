@@ -2817,8 +2817,8 @@ msgstr "pg_wal_file_name_offset() non può essere eseguito durante il recupero."
 
 #: access/transam/xlogfuncs.c:529
 #, c-format
-msgid "pg_xlogfile_name() cannot be executed during recovery."
-msgstr "pg_xlogfile_name() non può essere eseguito durante il recupero."
+msgid "pg_wal_file_name() cannot be executed during recovery."
+msgstr "pg_wal_file_name() non può essere eseguito durante il recupero."
 
 #: access/transam/xlogfuncs.c:549 access/transam/xlogfuncs.c:569
 #: access/transam/xlogfuncs.c:586

@@ -1921,8 +1921,8 @@ msgstr "tidak dapat menguraikan file log transaksi « %s »"
 
 #: access/transam/xlogfuncs.c:374
 #, c-format
-msgid "pg_xlogfile_name() cannot be executed during recovery."
-msgstr "pg_xlogfile_name() tidak dapat menjalankan selama proses pemulihan."
+msgid "pg_wal_file_name() cannot be executed during recovery."
+msgstr "pg_wal_file_name() tidak dapat menjalankan selama proses pemulihan."
 
 #: access/transam/xlogfuncs.c:402 access/transam/xlogfuncs.c:424 access/transam/xlogfuncs.c:446
 #, c-format
