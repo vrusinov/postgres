@@ -17933,7 +17933,7 @@ SELECT set_config('log_statement_stats', 'off', false);
     <primary>pg_create_restore_point</primary>
    </indexterm>
    <indexterm>
-    <primary>pg_current_xlog_flush_location</primary>
+    <primary>pg_current_wal_flush_location</primary>
    </indexterm>
    <indexterm>
     <primary>pg_current_wal_insert_location</primary>
@@ -17992,10 +17992,13 @@ SELECT set_config('log_statement_stats', 'off', false);
       </row>
       <row>
        <entry>
-        <literal><function>pg_current_xlog_flush_location()</function></literal>
+        <literal><function>pg_current_wal_flush_location()</function></literal>
         </entry>
        <entry><type>pg_lsn</type></entry>
-       <entry>Get current transaction log flush location</entry>
+       <entry>
+        Get current transaction log flush location. Old name:
+        pg_current_xlog_flush_location.
+       </entry>
       </row>
       <row>
        <entry>
@@ -18163,7 +18166,7 @@ postgres=# select pg_start_backup('label_goes_here');
     <function>pg_current_wal_location</> displays the current transaction log
     write location in the same format used by the above functions.  Similarly,
     <function>pg_current_wal_insert_location</> displays the current transaction log
-    insertion point and <function>pg_current_xlog_flush_location</> displays the
+    insertion point and <function>pg_current_wal_flush_location</> displays the
     current transaction log flush point. The insertion point is the <quote>logical</>
     end of the transaction log at any instant, while the write location is the end of
     what has actually been written out from the server's internal buffers and flush
