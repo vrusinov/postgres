@@ -4424,44 +4424,44 @@ SELECT col1, (SELECT regexp_matches(col2, '(bar)(beque)')) FROM tab;
 <programlisting>
 
 SELECT foo FROM regexp_split_to_table('the quick brown fox jumps over the lazy dog', E'\\s+') AS foo;
-  foo
+  foo   
 -------
- the
- quick
- brown
- fox
- jumps
- over
- the
- lazy
- dog
+ the    
+ quick  
+ brown  
+ fox    
+ jumps 
+ over   
+ the    
+ lazy   
+ dog    
 (9 rows)
 
 SELECT regexp_split_to_array('the quick brown fox jumps over the lazy dog', E'\\s+');
-              regexp_split_to_array
+              regexp_split_to_array             
 -----------------------------------------------
  {the,quick,brown,fox,jumps,over,the,lazy,dog}
 (1 row)
 
 SELECT foo FROM regexp_split_to_table('the quick brown fox', E'\\s*') AS foo;
- foo
+ foo 
 -----
- t
- h
- e
- q
- u
- i
- c
- k
- b
- r
- o
- w
- n
- f
- o
- x
+ t         
+ h         
+ e         
+ q         
+ u         
+ i         
+ c         
+ k         
+ b         
+ r         
+ o         
+ w         
+ n         
+ f         
+ o         
+ x         
 (16 rows)
 </programlisting>
    </para>
@@ -10285,32 +10285,32 @@ SELECT xmlexists('//town[text() = ''Toronto'']' PASSING BY REF '<towns><town>Tor
 <screen><![CDATA[
 SET xmloption TO DOCUMENT;
 SELECT xml_is_well_formed('<>');
- xml_is_well_formed
+ xml_is_well_formed 
 --------------------
  f
 (1 row)
 
 SELECT xml_is_well_formed('<abc/>');
- xml_is_well_formed
+ xml_is_well_formed 
 --------------------
  t
 (1 row)
 
 SET xmloption TO CONTENT;
 SELECT xml_is_well_formed('abc');
- xml_is_well_formed
+ xml_is_well_formed 
 --------------------
  t
 (1 row)
 
 SELECT xml_is_well_formed_document('<pg:foo xmlns:pg="http://postgresql.org/stuff">bar</pg:foo>');
- xml_is_well_formed_document
+ xml_is_well_formed_document 
 -----------------------------
  t
 (1 row)
 
 SELECT xml_is_well_formed_document('<pg:foo xmlns:pg="http://postgresql.org/stuff">bar</my:foo>');
- xml_is_well_formed_document
+ xml_is_well_formed_document 
 -----------------------------
  f
 (1 row)
@@ -10373,7 +10373,7 @@ SELECT xml_is_well_formed_document('<pg:foo xmlns:pg="http://postgresql.org/stuf
 SELECT xpath('/my:a/text()', '<my:a xmlns:my="http://example.com">test</my:a>',
              ARRAY[ARRAY['my', 'http://example.com']]);
 
- xpath
+ xpath  
 --------
  {test}
 (1 row)
@@ -10416,7 +10416,7 @@ SELECT xpath('//mydefns:b/text()', '<a xmlns="http://example.com"><b>test</b></a
 SELECT xpath_exists('/my:a/text()', '<my:a xmlns:my="http://example.com">test</my:a>',
                      ARRAY[ARRAY['my', 'http://example.com']]);
 
- xpath_exists
+ xpath_exists  
 --------------
  t
 (1 row)
@@ -15174,7 +15174,7 @@ SELECT * FROM generate_series(4,3);
 (0 rows)
 
 SELECT generate_series(1.1, 4, 1.3);
- generate_series
+ generate_series 
 -----------------
              1.1
              2.4
@@ -15192,7 +15192,7 @@ SELECT current_date + s.a AS dates FROM generate_series(0,14,7) AS s(a);
 
 SELECT * FROM generate_series('2008-03-01 00:00'::timestamp,
                               '2008-03-04 12:00', '10 hours');
-   generate_series
+   generate_series   
 ---------------------
  2008-03-01 00:00:00
  2008-03-01 10:00:00
@@ -15255,7 +15255,7 @@ SELECT * FROM generate_series('2008-03-01 00:00'::timestamp,
 <programlisting>
 -- basic usage
 SELECT generate_subscripts('{NULL,1,NULL,2}'::int[], 1) AS s;
- s
+ s 
 ---
  1
  2
@@ -15266,7 +15266,7 @@ SELECT generate_subscripts('{NULL,1,NULL,2}'::int[], 1) AS s;
 -- presenting an array, the subscript and the subscripted
 -- value requires a subquery
 SELECT * FROM arrays;
-         a
+         a          
 --------------------
  {-1,-2}
  {100,200,300}
@@ -15292,7 +15292,7 @@ select $1[i][j]
 $$ LANGUAGE sql IMMUTABLE;
 CREATE FUNCTION
 SELECT * FROM unnest2(ARRAY[[1,2],[3,4]]);
- unnest2
+ unnest2 
 ---------
        1
        2
@@ -16922,13 +16922,13 @@ SELECT pg_type_is_visible('myschema.widget'::regtype);
 <programlisting>
 SELECT pg_typeof(33);
 
- pg_typeof
+ pg_typeof 
 -----------
  integer
 (1 row)
 
 SELECT typlen FROM pg_type WHERE oid = pg_typeof(33);
- typlen
+ typlen 
 --------
       4
 (1 row)
@@ -16940,13 +16940,13 @@ SELECT typlen FROM pg_type WHERE oid = pg_typeof(33);
    value that is passed to it.  Example:
 <programlisting>
 SELECT collation for (description) FROM pg_description LIMIT 1;
- pg_collation_for
+ pg_collation_for 
 ------------------
  "default"
 (1 row)
 
 SELECT collation for ('foo' COLLATE "de_DE");
- pg_collation_for
+ pg_collation_for 
 ------------------
  "de_DE"
 (1 row)
@@ -17933,13 +17933,13 @@ SELECT set_config('log_statement_stats', 'off', false);
     <primary>pg_create_restore_point</primary>
    </indexterm>
    <indexterm>
-    <primary>pg_current_wal_flush_location</primary>
+    <primary>pg_current_xlog_flush_location</primary>
    </indexterm>
    <indexterm>
-    <primary>pg_current_wal_insert_location</primary>
+    <primary>pg_current_xlog_insert_location</primary>
    </indexterm>
    <indexterm>
-    <primary>pg_current_wal_location</primary>
+    <primary>pg_current_xlog_location</primary>
    </indexterm>
    <indexterm>
     <primary>pg_start_backup</primary>
@@ -17954,16 +17954,16 @@ SELECT set_config('log_statement_stats', 'off', false);
     <primary>pg_backup_start_time</primary>
    </indexterm>
    <indexterm>
-    <primary>pg_switch_wal</primary>
+    <primary>pg_switch_xlog</primary>
    </indexterm>
    <indexterm>
-    <primary>pg_wal_file_name</primary>
+    <primary>pg_xlogfile_name</primary>
    </indexterm>
    <indexterm>
-    <primary>pg_wal_file_name_offset</primary>
+    <primary>pg_xlogfile_name_offset</primary>
    </indexterm>
    <indexterm>
-    <primary>pg_wal_location_diff</primary>
+    <primary>pg_xlog_location_diff</primary>
    </indexterm>
 
    <para>
@@ -17971,7 +17971,7 @@ SELECT set_config('log_statement_stats', 'off', false);
     linkend="functions-admin-backup-table"> assist in making on-line backups.
     These functions cannot be executed during recovery (except
     <function>pg_is_in_backup</function>, <function>pg_backup_start_time</function>
-    and <function>pg_wal_location_diff</function>).
+    and <function>pg_xlog_location_diff</function>).
    </para>
 
    <table id="functions-admin-backup-table">
@@ -17992,30 +17992,24 @@ SELECT set_config('log_statement_stats', 'off', false);
       </row>
       <row>
        <entry>
-        <literal><function>pg_current_wal_flush_location()</function></literal>
+        <literal><function>pg_current_xlog_flush_location()</function></literal>
         </entry>
        <entry><type>pg_lsn</type></entry>
-       <entry>
-        Get current transaction log flush location. Old name:
-        pg_current_xlog_flush_location.
-       </entry>
+       <entry>Get current transaction log flush location</entry>
       </row>
       <row>
        <entry>
-        <literal><function>pg_current_wal_insert_location()</function></literal>
+        <literal><function>pg_current_xlog_insert_location()</function></literal>
         </entry>
        <entry><type>pg_lsn</type></entry>
        <entry>Get current transaction log insert location</entry>
       </row>
       <row>
        <entry>
-        <literal><function>pg_current_wal_location()</function></literal>
+        <literal><function>pg_current_xlog_location()</function></literal>
         </entry>
        <entry><type>pg_lsn</type></entry>
-       <entry>
-        Get current transaction log write location. Old name:
-        pg_current_xlog_location
-       </entry>
+       <entry>Get current transaction log write location</entry>
       </row>
       <row>
        <entry>
@@ -18054,41 +18048,31 @@ SELECT set_config('log_statement_stats', 'off', false);
       </row>
       <row>
        <entry>
-        <literal><function>pg_switch_wal()</function></literal>
+        <literal><function>pg_switch_xlog()</function></literal>
         </entry>
        <entry><type>pg_lsn</type></entry>
-       <entry>
-        Force switch to a new write-ahead log file (restricted to superusers by
-        default, but other users can be granted EXECUTE to run the function).
-        Old name: pg_switch_xlog.
-       </entry>
+       <entry>Force switch to a new transaction log file (restricted to superusers by default, but other users can be granted EXECUTE to run the function)</entry>
       </row>
       <row>
        <entry>
-        <literal><function>pg_wal_file_name(<parameter>location</> <type>pg_lsn</>)</function></literal>
+        <literal><function>pg_xlogfile_name(<parameter>location</> <type>pg_lsn</>)</function></literal>
         </entry>
        <entry><type>text</type></entry>
-       <entry>
-        Convert transaction log location string to file name. Old name:
-        pg_xlogfile_name.
-       </entry>
+       <entry>Convert transaction log location string to file name</entry>
       </row>
       <row>
        <entry>
-        <literal><function>pg_wal_file_name_offset(<parameter>location</> <type>pg_lsn</>)</function></literal>
+        <literal><function>pg_xlogfile_name_offset(<parameter>location</> <type>pg_lsn</>)</function></literal>
         </entry>
        <entry><type>text</>, <type>integer</></entry>
-       <entry>
-        Convert transaction log location string to file name and decimal byte
-        offset within file. Old name: pg_xlogfile_name_offset.
-       </entry>
+       <entry>Convert transaction log location string to file name and decimal byte offset within file</entry>
       </row>
       <row>
        <entry>
-        <literal><function>pg_wal_location_diff(<parameter>location</> <type>pg_lsn</>, <parameter>location</> <type>pg_lsn</>)</function></literal>
+        <literal><function>pg_xlog_location_diff(<parameter>location</> <type>pg_lsn</>, <parameter>location</> <type>pg_lsn</>)</function></literal>
        </entry>
        <entry><type>numeric</></entry>
-       <entry>Calculate the difference between two transaction log locations (old name: pg_xlog_location_diff)</entry>
+       <entry>Calculate the difference between two transaction log locations</entry>
       </row>
      </tbody>
     </tgroup>
@@ -18143,13 +18127,12 @@ postgres=# select pg_start_backup('label_goes_here');
    </para>
 
    <para>
-    <function>pg_switch_wal</> moves to the next transaction log file, allowing
-    the current file to be archived (assuming you are using continuous
-    archiving). The return value is the ending transaction log location + 1
-    within the just-completed transaction log file. If there has been no
-    transaction log activity since the last transaction log switch,
-    <function>pg_switch_wal</> does nothing and returns the start location of
-    the transaction log file currently in use.
+    <function>pg_switch_xlog</> moves to the next transaction log file, allowing the
+    current file to be archived (assuming you are using continuous archiving).
+    The return value is the ending transaction log location + 1 within the just-completed transaction log file.
+    If there has been no transaction log activity since the last transaction log switch,
+    <function>pg_switch_xlog</> does nothing and returns the start location
+    of the transaction log file currently in use.
    </para>
 
    <para>
@@ -18163,10 +18146,10 @@ postgres=# select pg_start_backup('label_goes_here');
    </para>
 
    <para>
-    <function>pg_current_wal_location</> displays the current transaction log
-    write location in the same format used by the above functions.  Similarly,
-    <function>pg_current_wal_insert_location</> displays the current transaction log
-    insertion point and <function>pg_current_wal_flush_location</> displays the
+    <function>pg_current_xlog_location</> displays the current transaction log write
+    location in the same format used by the above functions.  Similarly,
+    <function>pg_current_xlog_insert_location</> displays the current transaction log
+    insertion point and <function>pg_current_xlog_flush_location</> displays the
     current transaction log flush point. The insertion point is the <quote>logical</>
     end of the transaction log at any instant, while the write location is the end of
     what has actually been written out from the server's internal buffers and flush
@@ -18175,21 +18158,21 @@ postgres=# select pg_start_backup('label_goes_here');
     what you want if you are interested in archiving partially-complete transaction log
     files.  The insertion and flush points are made available primarily for server
     debugging purposes.  These are both read-only operations and do not
-    require superuser permissions. Old name: pg_current_xlog_insert_location.
+    require superuser permissions.
    </para>
 
    <para>
-    You can use <function>pg_wal_file_name_offset</> to extract the
+    You can use <function>pg_xlogfile_name_offset</> to extract the
     corresponding transaction log file name and byte offset from the results of any of the
     above functions.  For example:
 <programlisting>
-postgres=# SELECT * FROM pg_wal_file_name_offset(pg_stop_backup());
-        file_name         | file_offset
+postgres=# SELECT * FROM pg_xlogfile_name_offset(pg_stop_backup());
+        file_name         | file_offset 
 --------------------------+-------------
  00000001000000000000000D |     4039624
 (1 row)
 </programlisting>
-    Similarly, <function>pg_wal_file_name</> extracts just the transaction log file name.
+    Similarly, <function>pg_xlogfile_name</> extracts just the transaction log file name.
     When the given transaction log location is exactly at a transaction log file boundary, both
     these functions return the name of the preceding transaction log file.
     This is usually the desired behavior for managing transaction log archiving
@@ -18198,7 +18181,7 @@ postgres=# SELECT * FROM pg_wal_file_name_offset(pg_stop_backup());
    </para>
 
    <para>
-    <function>pg_wal_location_diff</> calculates the difference in bytes
+    <function>pg_xlog_location_diff</> calculates the difference in bytes
     between two transaction log locations. It can be used with
     <structname>pg_stat_replication</structname> or some functions shown in
     <xref linkend="functions-admin-backup-table"> to get the replication lag.
@@ -18218,10 +18201,10 @@ postgres=# SELECT * FROM pg_wal_file_name_offset(pg_stop_backup());
     <primary>pg_is_in_recovery</primary>
    </indexterm>
    <indexterm>
-    <primary>pg_last_wal_receive_location</primary>
+    <primary>pg_last_xlog_receive_location</primary>
    </indexterm>
    <indexterm>
-    <primary>pg_last_wal_replay_location</primary>
+    <primary>pg_last_xlog_replay_location</primary>
    </indexterm>
    <indexterm>
     <primary>pg_last_xact_replay_timestamp</primary>
@@ -18253,21 +18236,21 @@ postgres=# SELECT * FROM pg_wal_file_name_offset(pg_stop_backup());
       </row>
       <row>
        <entry>
-        <literal><function>pg_last_wal_receive_location()</function></literal>
+        <literal><function>pg_last_xlog_receive_location()</function></literal>
         </entry>
        <entry><type>pg_lsn</type></entry>
        <entry>Get last transaction log location received and synced to disk by
         streaming replication. While streaming replication is in progress
         this will increase monotonically. If recovery has completed this will
-        remain static at the value of the last WAL record received and synced to
-        disk during recovery. If streaming replication is disabled, or if it has
-        not yet started, the function returns NULL. Old name:
-        pg_last_xlog_receive_location.
+        remain static at
+        the value of the last WAL record received and synced to disk during
+        recovery. If streaming replication is disabled, or if it has not yet
+        started, the function returns NULL.
        </entry>
       </row>
       <row>
        <entry>
-        <literal><function>pg_last_wal_replay_location()</function></literal>
+        <literal><function>pg_last_xlog_replay_location()</function></literal>
         </entry>
        <entry><type>pg_lsn</type></entry>
        <entry>Get last transaction log location replayed during recovery.
@@ -18275,7 +18258,7 @@ postgres=# SELECT * FROM pg_wal_file_name_offset(pg_stop_backup());
         If recovery has completed then this value will remain static at
         the value of the last WAL record applied during that recovery.
         When the server has been started normally without recovery
-        the function returns NULL. Old name: pg_last_xlog_replay_location.
+        the function returns NULL.
        </entry>
       </row>
       <row>
@@ -18299,13 +18282,13 @@ postgres=# SELECT * FROM pg_wal_file_name_offset(pg_stop_backup());
    </table>
 
    <indexterm>
-    <primary>pg_is_recovery_paused</primary>
+    <primary>pg_is_xlog_replay_paused</primary>
    </indexterm>
    <indexterm>
-    <primary>pg_pause_recovery</primary>
+    <primary>pg_xlog_replay_pause</primary>
    </indexterm>
    <indexterm>
-    <primary>pg_resume_recovery</primary>
+    <primary>pg_xlog_replay_resume</primary>
    </indexterm>
 
    <para>
@@ -18325,32 +18308,26 @@ postgres=# SELECT * FROM pg_wal_file_name_offset(pg_stop_backup());
      <tbody>
       <row>
        <entry>
-        <literal><function>pg_is_recovery_paused()</function></literal>
+        <literal><function>pg_is_xlog_replay_paused()</function></literal>
         </entry>
        <entry><type>bool</type></entry>
-       <entry>True if recovery is paused. Old name: pg_is_xlog_replay_paused.
+       <entry>True if recovery is paused.
        </entry>
       </row>
       <row>
        <entry>
-        <literal><function>pg_pause_recovery()</function></literal>
+        <literal><function>pg_xlog_replay_pause()</function></literal>
         </entry>
        <entry><type>void</type></entry>
-       <entry>
-        Pauses recovery immediately (restricted to superusers by default, but
-        other users can be granted EXECUTE to run the function). Old name:
-        pg_xlog_replay_pause.
+       <entry>Pauses recovery immediately (restricted to superusers by default, but other users can be granted EXECUTE to run the function).
        </entry>
       </row>
       <row>
        <entry>
-        <literal><function>pg_resume_recovery()</function></literal>
+        <literal><function>pg_xlog_replay_resume()</function></literal>
         </entry>
        <entry><type>void</type></entry>
-       <entry>
-        Restarts recovery if it was paused (restricted to superusers by default,
-        but other users can be granted EXECUTE to run the function). Old name:
-        pg_xlog_replay_resume.
+       <entry>Restarts recovery if it was paused (restricted to superusers by default, but other users can be granted EXECUTE to run the function).
        </entry>
       </row>
      </tbody>
