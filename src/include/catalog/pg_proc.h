@@ -3170,13 +3170,12 @@ DESCR("WAL filename and byte offset, given an WAL location");
 DATA(insert OID = 2850 ( pg_xlogfile_name_offset	       PGNSP PGUID 12 1 0 0 0 f f f f t f i s 1 0 2249 "3220" "{3220,25,23}" "{i,o,o}" "{wal_location,file_name,file_offset}" _null_ _null_ pg_wal_file_name_offset _null_ _null_ _null_ ));
 DESCR("historical alias for pg_wal_file_name_offset");
 DATA(insert OID = 3453 ( pg_wal_file_name			           PGNSP PGUID 12 1 0 0 0 f f f f t f i s 1 0 25   "3220" _null_ _null_ _null_ _null_ _null_ pg_wal_file_name _null_ _null_ _null_ ));
-DESCR("xlog filename, given an xlog location");
+DESCR("WAL filename, given a WAL location");
 DATA(insert OID = 2851 ( pg_xlogfile_name			           PGNSP PGUID 12 1 0 0 0 f f f f t f i s 1 0 25   "3220" _null_ _null_ _null_ _null_ _null_ pg_wal_file_name _null_ _null_ _null_ ));
 DESCR("historical alias for pg_wal_file_name");
 
 DATA(insert OID = 3445 ( pg_wal_location_diff		PGNSP PGUID 12 1 0 0 0 f f f f t f i s 2 0 1700 "3220 3220" _null_ _null_ _null_ _null_ _null_ pg_wal_location_diff _null_ _null_ _null_ ));
-DESCR("difference in bytes, given two wal (aka xlog) locations");
-/* TODO: remove this alias a few versions afer 10.0 release. */
+DESCR("difference in bytes, given two WAL locations");
 DATA(insert OID = 3165 ( pg_xlog_location_diff		PGNSP PGUID 12 1 0 0 0 f f f f t f i s 2 0 1700 "3220 3220" _null_ _null_ _null_ _null_ _null_ pg_wal_location_diff _null_ _null_ _null_ ));
 DESCR("historical alias for pg_wal_location_diff");
 
