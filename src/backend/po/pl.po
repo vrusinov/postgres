@@ -2081,8 +2081,8 @@ msgstr "odzyskiwanie zostało wstrzymane"
 
 #: access/transam/xlog.c:5645
 #, c-format
-msgid "Execute pg_resume_recovery() to continue."
-msgstr "Wykonaj pg_resume_recovery() by kontynuować."
+msgid "Execute pg_wal_replay_resume() to continue."
+msgstr "Wykonaj pg_wal_replay_resume() by kontynuować."
 
 #: access/transam/xlog.c:5852
 #, c-format

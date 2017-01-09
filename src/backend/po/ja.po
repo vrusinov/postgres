@@ -1347,8 +1347,8 @@ msgstr "リカバリはすでに停止されています"
 
 #: access/transam/xlog.c:5804
 #, c-format
-msgid "Execute pg_resume_recovery() to continue."
-msgstr "pg_resume_recovery() を動かして処理を継続してください"
+msgid "Execute pg_wal_replay_resume() to continue."
+msgstr "pg_wal_replay_resume() を動かして処理を継続してください"
 
 #: access/transam/xlog.c:5934
 #, c-format
