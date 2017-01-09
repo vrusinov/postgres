@@ -3196,10 +3196,10 @@ DESCR("historical alias for pg_last_wal_replay_location");
 DATA(insert OID = 3830 ( pg_last_xact_replay_timestamp	PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 1184 "" _null_ _null_ _null_ _null_ _null_ pg_last_xact_replay_timestamp _null_ _null_ _null_ ));
 DESCR("timestamp of last replay xact");
 
-DATA(insert OID = 3450 ( pg_pause_recovery		    PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 2278 "" _null_ _null_ _null_ _null_ _null_ pg_pause_recovery _null_ _null_ _null_ ));
+DATA(insert OID = 3450 ( pg_wal_replay_pause      PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 2278 "" _null_ _null_ _null_ _null_ _null_ pg_wal_replay_pause _null_ _null_ _null_ ));
 DESCR("pause WAL replay");
-DATA(insert OID = 3071 ( pg_xlog_replay_pause		  PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 2278 "" _null_ _null_ _null_ _null_ _null_ pg_pause_recovery _null_ _null_ _null_ ));
-DESCR("historical alias for pg_pause_recovery");
+DATA(insert OID = 3071 ( pg_xlog_replay_pause		  PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 2278 "" _null_ _null_ _null_ _null_ _null_ pg_wal_replay_pause _null_ _null_ _null_ ));
+DESCR("historical alias for pg_wal_replay_pause");
 DATA(insert OID = 3451 ( pg_wal_replay_resume     PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 2278 "" _null_ _null_ _null_ _null_ _null_ pg_wal_replay_resume _null_ _null_ _null_ ));
 DESCR("resume WAL replay, if it was paused");
 DATA(insert OID = 3072 ( pg_xlog_replay_resume	  PGNSP PGUID 12 1 0 0 0 f f f f t f v s 0 0 2278 "" _null_ _null_ _null_ _null_ _null_ pg_wal_replay_resume _null_ _null_ _null_ ));

@@ -534,13 +534,13 @@ pg_wal_file_name(PG_FUNCTION_ARGS)
 }
 
 /*
- * pg_pause_recovery - pause recovery now
+ * pg_wal_replay_pause - pause recovery now
  *
  * Permission checking for this function is managed through the normal
  * GRANT system.
  */
 Datum
-pg_pause_recovery(PG_FUNCTION_ARGS)
+pg_wal_replay_pause(PG_FUNCTION_ARGS)
 {
 	if (!RecoveryInProgress())
 		ereport(ERROR,
