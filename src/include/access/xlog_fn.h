@@ -29,7 +29,7 @@ extern Datum pg_wal_file_name(PG_FUNCTION_ARGS);
 extern Datum pg_is_in_recovery(PG_FUNCTION_ARGS);
 extern Datum pg_wal_replay_pause(PG_FUNCTION_ARGS);
 extern Datum pg_wal_replay_resume(PG_FUNCTION_ARGS);
-extern Datum pg_is_recovery_paused(PG_FUNCTION_ARGS);
+extern Datum pg_is_wal_replay_paused(PG_FUNCTION_ARGS);
 extern Datum pg_wal_location_diff(PG_FUNCTION_ARGS);
 extern Datum pg_is_in_backup(PG_FUNCTION_ARGS);
 extern Datum pg_backup_start_time(PG_FUNCTION_ARGS);
