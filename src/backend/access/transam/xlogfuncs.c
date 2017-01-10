@@ -468,8 +468,7 @@ pg_wal_file_name_offset(PG_FUNCTION_ARGS)
 		ereport(ERROR,
 				(errcode(ERRCODE_OBJECT_NOT_IN_PREREQUISITE_STATE),
 				 errmsg("recovery is in progress"),
-				 errhint(
-					 "pg_wal_file_name_offset() cannot be executed during recovery.")));
+				 errhint("pg_wal_file_name_offset() cannot be executed during recovery.")));
 
 	/*
 	 * Construct a tuple descriptor for the result row.  This must match this
